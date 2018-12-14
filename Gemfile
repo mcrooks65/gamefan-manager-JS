@@ -41,6 +41,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 gem "sprockets", ">= 3.7.2"
 
+gem "rubyzip", ">= 1.2.2"
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
