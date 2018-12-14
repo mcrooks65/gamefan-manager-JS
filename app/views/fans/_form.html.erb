@@ -1,0 +1,15 @@
+<%= form_for(@fan) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: "form-control" %></div
+
+  <div class="form-group">
+    <%= f.label "Vote for your favorite Game" %>   
+    <%= f.collection_select(:game_id, Game.all, :id, :title)%>
+   <br>
+
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

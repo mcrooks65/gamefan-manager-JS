@@ -1,0 +1,23 @@
+<h1>Fans Index</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><strong>Fan Name</strong></td>
+      <td><strong>Game Choice</strong></td>
+    </tr>
+    <% @fans.each do |fan| %>
+      <tr>
+        <td><%= link_to "#{fan.name}", fan_path(fan) %></td>
+        <td><%= fan.game_id %></td>
+        <% end %>
+      </tr>
+  </tbody>
+</table>
+<br> <br>
+<%= link_to "Back to Home", '/' %>
