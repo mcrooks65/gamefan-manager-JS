@@ -30621,3 +30621,85 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 699ms (Views: 467.5ms | ActiveRecord: 2.2ms)
 
 
+Started POST "/login" for 127.0.0.1 at 2018-12-14 14:31:59 -0800
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/learn/.rvm/gems/ruby-2.3.6/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AE+dT3Cmzu7Cv8VAjQ5D+KZ1hWTyBeJOWKRoSJZV4mnCwrdmcUfDfL0q+DTvHHNt4U5D2ewwcGL+gu00vlNbVQ==", "developer"=>{"id"=>"1", "password"=>"[FILTERED]"}, "commit"=>"Log In"}
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:21
+Redirected to http://localhost:3000/developers/1
+Completed 302 Found in 282ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/developers/1" for 127.0.0.1 at 2018-12-14 14:32:01 -0800
+Processing by DevelopersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDeveloper Load (1.7ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/developers_controller.rb:38
+  Rendering developers/show.html.erb within layouts/application
+  [1m[36mGame Load (1.8ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."developer_id" = ?[0m  [["developer_id", 1]]
+  ↳ app/views/developers/show.html.erb:13
+  Rendered developers/show.html.erb within layouts/application (102.5ms)
+Completed 200 OK in 2192ms (Views: 2043.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/developers" for 127.0.0.1 at 2018-12-14 14:32:08 -0800
+Processing by DevelopersController#index as HTML
+  Rendering developers/index.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/developers/index.html.erb:15
+  Rendered developers/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 167ms (Views: 162.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-14 14:32:10 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 123ms (Views: 109.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tally" for 127.0.0.1 at 2018-12-14 14:32:11 -0800
+Processing by StaticPagesController#tally as HTML
+  Rendering static_pages/tally.html.erb within layouts/application
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/static_pages/tally.html.erb:18
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mCACHE Developer Load (0.0ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 3]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.4ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 4]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mCACHE Developer Load (0.0ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 5]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mCACHE Developer Load (0.0ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 7]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mCACHE Developer Load (0.0ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 8]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mCACHE Developer Load (0.0ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/static_pages/tally.html.erb:41
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" INNER JOIN "games" ON "fans"."game_id" = "games"."id" WHERE "games"."developer_id" = ?[0m  [["developer_id", 1]]
+  ↳ app/views/static_pages/tally.html.erb:44
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" INNER JOIN "games" ON "fans"."game_id" = "games"."id" WHERE "games"."developer_id" = ?[0m  [["developer_id", 2]]
+  ↳ app/views/static_pages/tally.html.erb:44
+  Rendered static_pages/tally.html.erb within layouts/application (209.8ms)
+Completed 200 OK in 495ms (Views: 471.6ms | ActiveRecord: 18.1ms)
+
+
