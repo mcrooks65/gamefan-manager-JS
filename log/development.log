@@ -30703,3 +30703,124 @@ Processing by StaticPagesController#tally as HTML
 Completed 200 OK in 495ms (Views: 471.6ms | ActiveRecord: 18.1ms)
 
 
+Started GET "/tally" for 127.0.0.1 at 2018-12-14 14:47:34 -0800
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/learn/.rvm/gems/ruby-2.3.6/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#tally as HTML
+  Rendering static_pages/tally.html.erb within layouts/application
+  [1m[36mGame Load (2.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/static_pages/tally.html.erb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 3]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 4]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.2ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 5]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.4ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 7]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 8]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/static_pages/tally.html.erb:41
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" INNER JOIN "games" ON "fans"."game_id" = "games"."id" WHERE "games"."developer_id" = ?[0m  [["developer_id", 1]]
+  ↳ app/views/static_pages/tally.html.erb:44
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" INNER JOIN "games" ON "fans"."game_id" = "games"."id" WHERE "games"."developer_id" = ?[0m  [["developer_id", 2]]
+  ↳ app/views/static_pages/tally.html.erb:44
+  Rendered static_pages/tally.html.erb within layouts/application (373.9ms)
+Completed 200 OK in 1324ms (Views: 1205.6ms | ActiveRecord: 15.9ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2018-12-14 16:33:19 -0800
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/learn/.rvm/gems/ruby-2.3.6/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:18
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/show.html.erb:15
+  Rendered games/show.html.erb within layouts/application (165.4ms)
+Completed 200 OK in 2643ms (Views: 2378.1ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/games/1" for 127.0.0.1 at 2018-12-14 16:33:23 -0800
+Processing by GamesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT  "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/games_controller.rb:18
+  Rendering games/show.html.erb within layouts/application
+  [1m[36mDeveloper Load (0.2ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/games/show.html.erb:15
+  Rendered games/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 171ms (Views: 156.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/tally" for 127.0.0.1 at 2018-12-14 16:33:27 -0800
+Processing by StaticPagesController#tally as HTML
+  Rendering static_pages/tally.html.erb within layouts/application
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/views/static_pages/tally.html.erb:18
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mCACHE Developer Load (0.0ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 3]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mDeveloper Load (0.5ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 4]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mCACHE Developer Load (0.3ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 5]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mCACHE Developer Load (0.0ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 7]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mCACHE Developer Load (0.0ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" WHERE "fans"."game_id" = ?[0m  [["game_id", 8]]
+  ↳ app/views/static_pages/tally.html.erb:21
+  [1m[36mCACHE Developer Load (0.0ms)[0m  [1m[34mSELECT  "developers".* FROM "developers" WHERE "developers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/static_pages/tally.html.erb:24
+  [1m[36mDeveloper Load (0.3ms)[0m  [1m[34mSELECT "developers".* FROM "developers"[0m
+  ↳ app/views/static_pages/tally.html.erb:41
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" INNER JOIN "games" ON "fans"."game_id" = "games"."id" WHERE "games"."developer_id" = ?[0m  [["developer_id", 1]]
+  ↳ app/views/static_pages/tally.html.erb:44
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "fans" INNER JOIN "games" ON "fans"."game_id" = "games"."id" WHERE "games"."developer_id" = ?[0m  [["developer_id", 2]]
+  ↳ app/views/static_pages/tally.html.erb:44
+  Rendered static_pages/tally.html.erb within layouts/application (360.4ms)
+Completed 200 OK in 490ms (Views: 463.4ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-14 16:34:26 -0800
+Processing by StaticPagesController#home as HTML
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 155ms (Views: 137.7ms | ActiveRecord: 0.0ms)
+
+

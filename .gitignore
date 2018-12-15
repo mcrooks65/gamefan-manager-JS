@@ -14,6 +14,12 @@
 # Used by dotenv library to load environment variables.
 # .env
 
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history
