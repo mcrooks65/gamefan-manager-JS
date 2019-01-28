@@ -1,5 +1,7 @@
-# gamefan-manager
-This is a webapp called Game Fan Manager made for a rails project at the Flatiron School.
+# gamefan-manager-JS
+This is an extension to the webapp called Game Fan Manager made for the AJAX/Rails project at the Flatiron School.
+
+It shows how asyncronous javascript can improve the speed and usability of a webapp by avoiding a constant need for http requests.
 
 This web application stores Developers, Games, and Fans
 
