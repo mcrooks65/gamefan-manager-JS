@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'tally', to: 'static_pages#tally'
   get 'order', to: 'static_pages#order'
   get '/auth/github/callback' => 'sessions#create'
+  get 'jsindex', to: 'static_pages#jsindex'
 end
