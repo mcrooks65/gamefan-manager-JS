@@ -45,6 +45,8 @@ gem "rubyzip", ">= 1.2.2"
 
 gem "activestorage", ">= 5.2.1.1"
 
+gem "jquery-rails"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
