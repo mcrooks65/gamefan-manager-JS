@@ -37,6 +37,8 @@ gem 'omniauth-github'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+gem 'active_model_serializers'
+
 # Attempting to remediate security vulnerabilities
 
 gem "sprockets", ">= 3.7.2"
