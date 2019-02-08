@@ -21,9 +21,16 @@ class GamesController < ApplicationController
   def index
     if params[:developer_id]
       @games = Developer.find(params[:developer_id]).games
-
+      respond_to do |format|
+				format.html {render :index}
+				format.json {render json: @games}
+			end
     else
       @games = Game.all
+      respond_to do |format|
+				format.html {render :index}
+				format.json {render json: @games}
+			end
     end
   end
 
