@@ -15,6 +15,7 @@ function getGames() {
   $("button#js_index_games").on("click", function (e) {
     e.preventDefault();
 
-    alert("You clicked this button!");
+    //alert("You clicked this button!");
+    $('div#main-display-div').html('<p id="content">"You clicked this button!"</p>')
   })
 }
