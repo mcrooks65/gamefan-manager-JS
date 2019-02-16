@@ -29,3 +29,13 @@ function getGames() {
     $('div#main-display-div').html('<p id="content">"You clicked this button!"</p>')
   })
 }
+
+class Game {
+	constructor(obj) {
+		this.title = obj.title
+		// this.title = obj.title
+		// this.title = obj.title
+		// this.title = obj.title
+		// this.title = obj.title
+	}
+}
