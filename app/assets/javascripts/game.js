@@ -22,13 +22,24 @@ function getGames() {
     }).done(function (response) {
 
       console.log("response: ", response);
-      
+      let game = new Game(response[0]);
+      let gameHtmlData = game.gameHTML();
+      console.log("game: ", game);
+      console.log("gameHTMLData: ", gameHtmlData);
     })
 
     //alert("You clicked this button!");
     $('div#main-display-div').html('<p id="content">"You clicked this button!"</p>')
   })
 }
+
+// function somelistener() {
+// 	$('p#content').on('click', function (e) {
+// 		e.preventDefault()
+
+// 		console.log("now we clicked ");
+// 	})
+// }
 
 class Game {
 	constructor(obj) {
@@ -38,4 +49,10 @@ class Game {
 		// this.title = obj.title
 		// this.title = obj.title
 	}
+}
+
+Game.prototype.gameHTML = function () {
+	return (`
+		<div>${this.title}</div>
+	`)
 }
