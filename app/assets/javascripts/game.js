@@ -27,6 +27,7 @@ function getGames() {
       console.log("game: ", game);
       console.log("gameHTMLData: ", gameHtmlData);
       $('div#main-display-div').html(gameHtmlData)
+      debugger;
     })
 
     //alert("You clicked this button!");
@@ -45,15 +46,16 @@ function getGames() {
 class Game {
 	constructor(obj) {
 		this.title = obj.title
-		// this.title = obj.title
-		// this.title = obj.title
-		// this.title = obj.title
-		// this.title = obj.title
+	  this.description = obj.description
+		this.genre = obj.genre
+		this.price = obj.price
 	}
 }
 
 Game.prototype.gameHTML = function () {
 	return (`
-		<div>${this.title}</div>
+    <h1>${this.title}</h1>
+    <h2>${this.genre.toUpperCase()} -------- $${this.price}</h2>
+    <div>${this.description}</div>
 	`)
 }
