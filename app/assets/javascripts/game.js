@@ -26,10 +26,11 @@ function getGames() {
       let gameHtmlData = game.gameHTML();
       console.log("game: ", game);
       console.log("gameHTMLData: ", gameHtmlData);
+      $('div#main-display-div').html(gameHtmlData)
     })
 
     //alert("You clicked this button!");
-    $('div#main-display-div').html('<p id="content">"You clicked this button!"</p>')
+    //$('div#main-display-div').html('<p id="content">"You clicked this button!"</p>')
   })
 }
 
