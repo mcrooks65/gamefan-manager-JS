@@ -8,7 +8,7 @@
 $(document).ready(function () {
 	console.log('game.js loaded ...');
 	getGames()
-
+  showGame()
 });
 
 function getGames() {
@@ -23,15 +23,36 @@ function getGames() {
 
       console.log("response: ", response);
       let game = new Game(response[0]);
-      let gameHtmlData = game.gameHTML();
+      let gameHtmlData = game.gameIndexHTML();
       console.log("game: ", game);
       console.log("gameHTMLData: ", gameHtmlData);
       $('div#main-display-div').html(gameHtmlData)
-      debugger;
+      // debugger;
     })
 
     //alert("You clicked this button!");
     //$('div#main-display-div').html('<p id="content">"You clicked this button!"</p>')
+  })
+}
+
+function showGame() {
+  $("button#js_show_game").on("click", function (e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: 'http://localhost:3000/games',
+      method: 'get',
+      dataType: 'json'
+    }).done(function (response) {
+
+      console.log("response: ", response);
+      let game = new Game(response[0]);
+      let gameHtmlData = game.gameShowHTML();
+      console.log("game: ", game);
+      console.log("gameHTMLData: ", gameHtmlData);
+      $('div#main-display-div').html(gameHtmlData)
+      // debugger;
+    })
   })
 }
 
@@ -52,7 +73,13 @@ class Game {
 	}
 }
 
-Game.prototype.gameHTML = function () {
+Game.prototype.gameIndexHTML = function () {
+	return (`
+    <h1>${this.title}</h1>
+	`)
+}
+
+Game.prototype.gameShowHTML = function () {
 	return (`
     <h1>${this.title}</h1>
     <h2>${this.genre.toUpperCase()} -------- $${this.price}</h2>
