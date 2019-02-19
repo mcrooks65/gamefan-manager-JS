@@ -29,12 +29,8 @@ function getGames() {
     }
       //console.log("response: ", response);
       //console.log("game: ", game);
-      //console.log("gameHTMLData: ", gameHtmlData);
-     
+      //console.log("gameHTMLData: ", gameHtmlData);  
     })
-
-    //alert("You clicked this button!");
-    //$('div#main-display-div').html('<p id="content">"You clicked this button!"</p>')
   })
 }
 
@@ -43,13 +39,13 @@ function showGame() {
     e.preventDefault();
 
     $.ajax({
-      url: 'http://localhost:3000/games',
+      url: 'http://localhost:3000/games/1',
       method: 'get',
       dataType: 'json'
     }).done(function (response) {
 
       console.log("response: ", response);
-      let game = new Game(response[0]);
+      let game = new Game(response);
       let gameHtmlData = game.gameShowHTML();
       console.log("game: ", game);
       console.log("gameHTMLData: ", gameHtmlData);
@@ -79,6 +75,7 @@ class Game {
 Game.prototype.gameIndexHTML = function () {
 	return (`
     <button id=${this.title}>${this.title}</button>
+    <br>
 	`)
 }
 
