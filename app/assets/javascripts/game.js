@@ -78,7 +78,7 @@ class Game {
 
 Game.prototype.gameIndexHTML = function () {
 	return (`
-    <h1>${this.title}</h1>
+    <button id=${this.title}>${this.title}</button>
 	`)
 }
 
