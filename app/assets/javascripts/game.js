@@ -20,14 +20,17 @@ function getGames() {
       method: 'get',
       dataType: 'json'
     }).done(function (response) {
-
-      console.log("response: ", response);
-      let game = new Game(response[0]);
-      let gameHtmlData = game.gameIndexHTML();
-      console.log("game: ", game);
-      console.log("gameHTMLData: ", gameHtmlData);
-      $('div#main-display-div').html(gameHtmlData)
-      // debugger;
+      for (const key in response) {
+        console.log(response[key].title); 
+        let game = new Game(response[key]);
+        let gameHtmlData = game.gameIndexHTML();
+        $('div#main-display-div').append(gameHtmlData)
+        // debugger;
+    }
+      //console.log("response: ", response);
+      //console.log("game: ", game);
+      //console.log("gameHTMLData: ", gameHtmlData);
+     
     })
 
     //alert("You clicked this button!");
