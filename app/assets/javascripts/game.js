@@ -12,19 +12,23 @@ $(document).ready(function () {
 });
 
 function getGames() {
-  $("button#js_index_games").on("click", function (e) {
+  $("button#js_index_games").on("click",(e) => {
     e.preventDefault();
 
     $.ajax({
       url: 'http://localhost:3000/games',
       method: 'get',
       dataType: 'json'
-    }).done(function (response) {
+    }).done((response) => {
       for (const key in response) {
         console.log(response[key].title); 
         let game = new Game(response[key]);
         let gameHtmlData = game.gameIndexHTML();
         $('div#main-display-div').append(gameHtmlData)
+
+        // fetch(`/games.json`)
+        //   .then(res => res.json())
+        //   .then(data => console.log(data))
         // debugger;
     }
       //console.log("response: ", response);
@@ -35,14 +39,14 @@ function getGames() {
 }
 
 function showGame() {
-  $("button#js_show_game").on("click", function (e) {
+  $("button#js_show_game").on("click",(e) => {
     e.preventDefault();
 
     $.ajax({
       url: 'http://localhost:3000/games/1',
       method: 'get',
       dataType: 'json'
-    }).done(function (response) {
+    }).done((response) => {
 
       console.log("response: ", response);
       let game = new Game(response);
