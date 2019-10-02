@@ -48,7 +48,6 @@ function showGame() {
       method: 'get',
       dataType: 'json'
     }).done((response) => {
-
       console.log("response: ", response);
       let game = new Game(response);
       let gameHtmlData = game.gameShowHTML();
@@ -82,7 +81,6 @@ function showFreeHolderFans() {
   })
 }
 
-
 // function somelistener() {
 // 	$('p#content').on('click', function (e) {
 // 		e.preventDefault()
@@ -114,10 +112,4 @@ Game.prototype.gameShowHTML = function () {
     <h2>${this.genre.toUpperCase()} -------- $${this.price}</h2>
     <div>${this.description}</div>
   `)
-}
-Game.prototype.gameFansShowHTML = function () {
-  return (`
-    <h2>Total Fans for FreeHolder: ${this.fans.length}</h2>
-  `)
-
 }
