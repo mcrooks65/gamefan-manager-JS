@@ -9,6 +9,7 @@ $(document).ready(function () {
 	console.log('game.js loaded ...');
 	getGames()
   showGame()
+  showFreeHolderFans()
 });
 
 function getGames() {
@@ -59,6 +60,29 @@ function showGame() {
   })
 }
 
+function showFreeHolderFans() {
+  $("button#js_freeholder_fans").on("click",(e) => {
+    e.preventDefault();
+
+    $.ajax({
+      url: 'http://localhost:3000/games/1',
+      method: 'get',
+      dataType: 'json'
+    }).done((response) => {
+      let nameArray = [];
+      console.log("response: ", response);
+      for (var i = 0, length = response.fans.length; i < length; i++){
+        console.log(response.fans[i].name)
+        nameArray[i] = response.fans[i].name
+      } 
+      nameArrayAsString = nameArray.join(', ');
+      $('div#main-display-div').html("Total fans for FreeHolder: " + response.fans.length + "<br> Fan Names: " + nameArrayAsString)
+
+    })
+  })
+}
+
+
 // function somelistener() {
 // 	$('p#content').on('click', function (e) {
 // 		e.preventDefault()
@@ -72,7 +96,8 @@ class Game {
 		this.title = obj.title
 	  this.description = obj.description
 		this.genre = obj.genre
-		this.price = obj.price
+    this.price = obj.price
+    this.fans = obj.fans
 	}
 }
 
@@ -88,5 +113,11 @@ Game.prototype.gameShowHTML = function () {
     <h1>${this.title}</h1>
     <h2>${this.genre.toUpperCase()} -------- $${this.price}</h2>
     <div>${this.description}</div>
-	`)
+  `)
+}
+Game.prototype.gameFansShowHTML = function () {
+  return (`
+    <h2>Total Fans for FreeHolder: ${this.fans.length}</h2>
+  `)
+
 }
