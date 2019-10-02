@@ -15,10 +15,19 @@ class FansController < ApplicationController
   end
 
   def show
+    @fan = Fan.find(params[:id])
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @fan}
+    end
   end
 
   def index
     @fans = Fan.all
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @fans}
+    end
   end
 
   def edit
